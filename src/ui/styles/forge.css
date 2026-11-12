@@ -1,0 +1,73 @@
+/* ---------- Forge (lil-gui side panel, src/ui/forge/Forge.js) ----------
+   lil-gui declares its variables on every .lil-gui element, folders included, so the theme is
+   set on the panel and on each folder inside it. */
+.lil-gui.forge,
+.lil-gui.forge .lil-gui {
+  --background-color: rgb(22 25 36 / 0.92);
+  --title-background-color: #11131b;
+  --title-text-color: var(--accent);
+  --text-color: var(--fg);
+  --widget-color: #2c3042;
+  --hover-color: #383d52;
+  --focus-color: #454b65;
+  --number-color: var(--accent);
+  --string-color: #a2db3c;
+  --font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --font-family-mono: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  --name-width: 50%;
+  --width: min(340px, 85vw);
+}
+
+.lil-gui.forge.lil-auto-place {
+  top: max(8px, env(safe-area-inset-top));
+  right: max(8px, env(safe-area-inset-right));
+  max-height: calc(100% - 16px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+  border: 2px solid rgb(255 255 255 / 0.14);
+  border-radius: 6px;
+  box-shadow:
+    0 8px 24px rgb(0 0 0 / 0.55),
+    0 2px 0 rgb(0 0 0 / 0.8);
+  /* No backdrop blur: over a canvas that changes every frame it would be redone every frame */
+  overflow: hidden;
+}
+
+.lil-gui.forge > .lil-title {
+  letter-spacing: 0.08em;
+}
+
+/* Phones and touch screens: finger-sized rows, a scrolling panel */
+@media (max-width: 720px), (pointer: coarse) {
+  .lil-gui.forge,
+  .lil-gui.forge .lil-gui {
+    --widget-height: 36px;
+    --title-height: 40px;
+    --padding: 6px;
+    --spacing: 6px;
+    --font-size: 13px;
+    --input-font-size: 16px;
+    --folder-indent: 10px;
+    --scrollbar-width: 8px;
+    --slider-input-min-width: 56px;
+    --color-input-min-width: 68px;
+  }
+  .lil-gui.forge.lil-auto-place {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Messages from the Presets folder */
+.forge-status {
+  display: none;
+  padding: 6px 8px 8px;
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--fg);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.forge-status.is-visible {
+  display: block;
+}
+.forge-status.is-warning {
+  color: #ff9d6b;
+}

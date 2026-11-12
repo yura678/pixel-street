@@ -1,0 +1,27 @@
+node_modules
+dist
+*.log
+*.local
+.DS_Store
+
+
+# Claude Code (локальне, не комітити)
+.claude/
+CLAUDE.local.md
+
+# Тимчасове
+shots/
+.geometry/
+_to_delete/
+coverage/
+.vite/
+*.tsbuildinfo
+
+# Секрети
+.env
+.env.*
+
+# Редактори й ОС
+.idea/
+.vscode/
+Thumbs.db
